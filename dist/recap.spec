@@ -23,13 +23,13 @@ optional reporting on Apache, MySQL, and network connections.
 
 %install
 %{?el5:%{__rm} -rf %{buildroot}}
-%{__install} -Dm0755 recap %{buildroot}%{_sbindir}/recap
-%{__install} -Dm0755 recaptool %{buildroot}%{_sbindir}/recaptool
-%{__install} -Dm0644 recap.conf %{buildroot}%{_sysconfdir}/recap
-%{__install} -Dm0644 recap.cron %{buildroot}%{_sysconfdir}/cron.d/recap
-%{__install} -Dm0644 recap.conf.d %{buildroot}%{_sysconfdir}/httpd/conf.d/recap
-%{__install} -Dm0644 recap.5.gz %{buildroot}%{_mandir}/man5/recap.5.gz
-%{__install} -Dm0644 recap.8.gz %{buildroot}%{_mandir}/man8/recap.8.gz
+%{__install} -Dm0755 bin/recap %{buildroot}%{_sbindir}/recap
+%{__install} -Dm0755 bin/recaptool %{buildroot}%{_sbindir}/recaptool
+%{__install} -Dm0644 etc/recap.conf %{buildroot}%{_sysconfdir}/recap
+%{__install} -Dm0644 share/recap.cron %{buildroot}%{_sysconfdir}/cron.d/recap
+%{__install} -Dm0644 etc/recap.conf.d %{buildroot}%{_sysconfdir}/httpd/conf.d/recap
+%{__install} -Dm0644 man/recap.5.gz %{buildroot}%{_mandir}/man5/recap.5.gz
+%{__install} -Dm0644 man/recap.8.gz %{buildroot}%{_mandir}/man8/recap.8.gz
 %{__install} -dm0700 %{buildroot}%{_localstatedir}/log/recap
 
 
@@ -38,7 +38,7 @@ optional reporting on Apache, MySQL, and network connections.
 
 
 %files
-%doc README.md TODO CHANGELOG COPYING
+%doc share/README.md share/TODO share/CHANGELOG share/COPYING
 %dir %{_localstatedir}/log/recap
 %{_sbindir}/recap
 %{_sbindir}/recaptool
@@ -74,6 +74,9 @@ echo "Edit /etc/cron.d/recap to change cron execution."
 
 
 %changelog
+* Sun Feb 01 2015 Cian Brennan <cian.brennan@rackspace.co.uk> - 0.9.8-2
+- Rearrange soure dir
+
 * Wed Jan 07 2015 Carl George <carl.george@rackspace.com> - 0.9.8-1
 - Latest version
 
